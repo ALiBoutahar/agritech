@@ -1,0 +1,25 @@
+
+else
+  { %>
+  <div>
+    <table class="ttt table table-striped">
+      <thead class="bg-info text-center">
+        <tr>
+          <td  style="background-color: rgb(250, 6, 6); " colspan="2"><b>malade</b></td> 
+          <td style="background-color: rgb(22, 250, 6); " colspan="2"><b>traitement</b></td>
+        </tr>
+      </thead>
+      <tbody >
+          <% malades.forEach((malade,index) => { %>
+              <tr class="align-middle text-center">
+                  <td><img src="<%= malade.malade %>" style="width: 10rem; height: 10rem; " class="card-img-top" alt="logo"><b style="color: rgb(250, 6, 6); "><%= malade.name_malade %></b></td>
+                  <td><%= malade.description_m %></td>
+                  <td><img src="<%= malade.image_produit %>" style="width: 10rem;  height: 10rem;" class="card-img-top" alt="logo"><b style="color: rgb(44, 161, 36); "><%= malade.produit %></b></td>
+                  <td><%= malade.description_p %></td>
+              </tr>
+          <% }) %>
+      </tbody>
+  </table>
+</div>
+<% 
+}

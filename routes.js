@@ -21,7 +21,13 @@ const maladesses = mongoose.model('maladesses', new Schema({
     image_produit:String
  }));
 
-app.get("/ajouter",async(req,res)=>{res.render("ajouter",{resultat: {}});})
+app.get("/ajouter",async(req,res)=>{
+    const malades = await maladesses.find();
+        res.render("ajouter", {
+            resultat: {},
+            malades : malades
+        });
+})
 // app.get("/ali",async(req,res)=>{res.render("ali",{title:"ali"});})
 
 
@@ -130,8 +136,10 @@ app.post('/create', async (req, res) => {
        
 
     } else {
-         res.render("ajouter", {
-            resultat: {}
+        const malades = await maladesses.find();
+        res.render("ajouter", {
+            resultat: {},
+            malades : malades
         });
     }
     
