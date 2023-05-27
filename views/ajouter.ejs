@@ -16,6 +16,9 @@
         overflow: auto;
         height: 500px;
       }
+      .tt{
+        background-color: green;
+      }
     </style>
 </head>
 <body>
@@ -38,7 +41,7 @@
               <h3 align="center"> malade : <%= user.name_malade %></h3>
             </div>
             <div class="col-sm-6">
-              <div class="row card d-flex flex-row bd-highlight" >
+              <div class="tt row card d-flex flex-row bd-highlight" >
                 <div class="col-sm-6 text-center">
                   <img src="<%= user.malade %>" style="width: 15rem; height: 15rem; " alt="logo">
                   <h5 class="card-title" style="color: rgb(251, 4, 4);"> malade : <%= user.name_malade %></h5>
@@ -46,9 +49,8 @@
                 <textarea class="col-sm-6 card-text pb-0"  cols="42" rows="6"><%= user.description_m %></textarea>
               </div>
             </div>
-            <br>
             <div class="col-sm-6">
-              <div class="row card d-flex flex-row bd-highlight" >
+              <div class="tt row card d-flex flex-row bd-highlight" >
                 <div class="col-sm-6 text-center">
                   <img src="<%= user.image_produit %>" style="width: 15rem;  height: 15rem;" class="card-img-top" alt="logo">
                   <h5 class="card-title" style="color: rgb(2, 252, 39);">Produit : <%= user.produit %></h5>
@@ -56,17 +58,7 @@
                 <textarea class="col-sm-6 card-text pb-0"  cols="42" rows="6"><%= user.description_p %></textarea>
               </div>
             </div>
-            <!-- <div class="col-sm-6">
-              <div class="card d-flex flex-row bd-highlight mb-3" >
-                <img src="<%= user.image_produit %>" style="width: 15rem;  height: 15rem;" class="card-img-top" alt="logo">
-                <div class="card-body" style="width: 57rem;">
-                  <h5 class="card-title" style="color: rgb(2, 252, 39);">Produit : <%= user.produit %></h5>
-                  <p class="card-text"><%= user.description_p %></p>
-                </div>
-              </div>
-            </div> -->
         </div>
-          
           <% 
         });
       } 
