@@ -9,7 +9,7 @@
     <title>Document</title>
     <style>
       body{
-        background-color: rgb(228, 245, 231);
+        background-color: seagreen;
       }
       .ttt{
         display: block;
@@ -17,42 +17,17 @@
         height: 500px;
       }
       .tt{
-        background-color: rgb(252, 253, 252);
+        background-color: #ffffff;
       }
       .d{
-        border: 2px solid #090909;
+        border: 1px solid #090909;
       }
       .file-upload {
-        background-color: #ffffff;
-        width: 80%;
+        border-radius: 10px;
+        background-color: #def5df;
+        width: 100%;
         margin: 0 auto;
         padding: 5px;
-      }
-      
-      .file-upload-btn {
-        margin: 0;
-        color: #fff;
-        background: #1FB264;
-        border: none;
-        padding: 10px;
-        border-radius: 4px;
-        border-bottom: 4px solid #15824B;
-        transition: all .2s ease;
-        outline: none;
-        text-transform: uppercase;
-        font-weight: 700;
-      }
-      
-      .file-upload-btn:hover {
-        background: #1AA059;
-        color: #ffffff;
-        transition: all .2s ease;
-        cursor: pointer;
-      }
-      
-      .file-upload-btn:active {
-        border: 0;
-        transition: all .2s ease;
       }
       
       .file-upload-content {
@@ -75,18 +50,7 @@
         border: 4px dashed #1FB264;
         position: relative;
       }
-      
-      .image-dropping,
-      .image-upload-wrap:hover {
-        background-color: #1FB264;
-        border: 4px dashed #ffffff;
-      }
-      
-      .image-title-wrap {
-        padding: 0 15px 15px 15px;
-        color: #222;
-      }
-      
+ 
       .drag-text {
         text-align: center;
       }
@@ -98,11 +62,6 @@
         padding: 40px 0;
       }
       
-      .file-upload-image {
-        max-height: 200px;
-        max-width: 200px;
-      }
-
     </style>
 </head>
 <body>
@@ -125,25 +84,26 @@
       %>
 
           <div class="row m-1">
-            <div class="col-sm-12 mb-3 card d-flex justify-content-center" style=" background-color: rgb(224, 23, 23);">
-              <h3 align="center"> malade : <%= user.name_malade %></h3>
-            </div>
             <div class="col-sm-6">
-              <div class="d tt row card d-flex flex-row bd-highlight" >
-                <div class="col-sm-6 text-center">
-                  <img src="<%= user.malade %>" style="width: 15rem; height: 15rem; " alt="logo">
-                  <h5 class="card-title" style="color: rgb(251, 4, 4);"> malade : <%= user.name_malade %></h5>
-                </div >
-                <textarea class="col-sm-6 card-text pb-0"  cols="42" rows="6"><%= user.description_m %></textarea>
+              <div class="d tt card d-flex flex-wrap bd-highlight mb-2">
+                <div class="col-sm-12 d-flex justify-content-center" style="border-radius: 5px 5px 0 0 ; background-color: rgb(254, 4, 4);">
+                  <h4 align="center"> Malade <%= user.name_malade %>  </h4> 
+                </div>
+                <div class="col-sm-12 text-center">
+                  <img src="<%= user.malade %>" style="width: 160px; height: 160px; " class="card-img" alt="logo">
+                </div>
+                <p class="p-1 col-sm-12 card-text pb-0" style="display: block;overflow: auto; height: 150px;"> <%= user.description_m %></p>
               </div>
             </div>
-            <div class="col-sm-6 ">
-              <div class="d tt row card d-flex flex-row bd-highlight" >
-                <div class="col-sm-6 text-center">
-                  <img src="<%= user.image_produit %>" style="width: 15rem;  height: 15rem;" class="card-img-top" alt="logo">
-                  <h5 class="card-title" style="color: rgb(2, 252, 39);">Produit : <%= user.produit %></h5>
+            <div class="col-sm-6">
+              <div class="d tt card d-flex flex-wrap bd-highlight mb-2">
+                <div class="col-sm-12 d-flex justify-content-center" style="border-radius: 5px 5px 0 0 ; background-color: rgb(73, 224, 23);">
+                  <h4 align="center"> Traitement <%= user.produit %>  </h4> 
                 </div>
-                <textarea class="col-sm-6 card-text pb-0"  cols="42" rows="6"><%= user.description_p %></textarea>
+                <div class="col-sm-12 text-center">
+                  <img src="<%= user.image_produit %>" style="width: 160px; height: 160px; " class="card-img" alt="logo">
+                </div>
+                <p class="p-1 col-sm-12 card-text pb-0" style="display: block;overflow: auto; height: 150px;"> <%= user.description_p %></p>
               </div>
             </div>
         </div>

@@ -23,3 +23,26 @@ else
 </div>
 <% 
 }
+
+
+<div class="col-sm-12 mb-3 card d-flex justify-content-center" style=" background-color: rgb(224, 23, 23);">
+              <h3 align="center"> malade : <%= user.name_malade %></h3>
+            </div>
+            <div class="col-sm-6">
+              <div class="d tt card d-flex flex-row bd-highlight mb-3" >
+                <div class="col-sm-4 text-center">
+                  <img src="<%= user.malade %>" style="width: 160px; height: 160px; " alt="logo">
+                  <h5 class="card-title mt-2" style="color: rgb(251, 4, 4);"><%= user.name_malade %></h5>
+                </div >
+                <p class="p-3 col-sm-8 card-text pb-0" style="display: block;overflow: auto; height: 210px;"><%= user.description_m %></p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d tt card d-flex flex-row bd-highlight mb-3">
+                <div class="col-sm-4 text-center">
+                  <img src="<%= user.image_produit %>" style="width: 160px; height: 160px; " class="card-img-top" alt="logo">
+                  <h5 class="card-title mt-2" style="color: rgb(14, 179, 39);"><%= user.produit %></h5>
+                </div>
+                <p class="p-3 col-sm-8 card-text pb-0" style="display: block;overflow: auto; height: 210px;"><%= user.description_p %></p>
+              </div>
+            </div>
