@@ -18,15 +18,17 @@ const maladesses = mongoose.model('test', new Schema({
     description_p:String,
     image_produit:String
  }));
-app.get("/ajouter",async(req,res)=>{res.render("ajouter",{resultat: {}});})
-app.get("/",async(req,res)=>{
-    const malades = await maladesses.find();
-    res.render("index",{
-        title:"malades",
-        malades : malades
+app.get("/",async(req,res)=>{res.render("ajouter",{resultat: {}});})
+
+// app.get("/",async(req,res)=>{
+//     const malades = await maladesses.find();
+//     res.render("index",{
+//         title:"malades",
+//         malades : malades
         
-    });  
-})
+//     });  
+// })
+
 const urlToBuffer = async (url) => {
     return new Promise(async (resolve, reject) => {
         await jimp.read(url, async (err, image) => {
@@ -70,7 +72,8 @@ const compareImage = async (
         const compatibility = 100 - (difference * 100) / (width * height);
         console.log(compatibility);
         return compatibility;
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(`error comparing images: ${error}`);
         throw error;
     }
@@ -84,7 +87,6 @@ app.post('/create', async (req, res) => {
             for (let index = 0; index < x.image_malade.length; index++) {
                 const y = Number(100);
                 const rt = await compareImage(image1, x.image_malade[index]); 
-                const nnn = x.name_malade;
                 if (rt === y) {
                     md = x.name_malade;
                 }

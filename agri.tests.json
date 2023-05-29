@@ -1,0 +1,15 @@
+[{
+  "name_malade": "peter pit ",
+  "description_m": "Le Bitter pit et le Russeting,  sont des maladies physiologiques des pommes, causées principalement par une carence en calcium.  Lors de la formation et du grossissement des fruits, phase de multiplication cellulaire importante, cette carence provoque la formation de cellules fragiles. En effet, la résistance des parois cellulaires est fortement liée à la quantité de calcium qu’elles contiennent.",
+  "image_malade": [
+    "malade/pit1.jpg",
+    "malade/pit2.jpg",
+    "malade/pit3.jpg",
+    "malade/pit4.jpg",
+    "malade/pit5.jpg"
+  ],
+  "malade": "https://staticmer2.emol.cl/Fotos/2012/01/06/file_20120106172315.jpg",
+  "produit": "Turbo Calcio Plus",
+  "description_p": "La limite des produits à base de nitrate de calcium réside dans le manque de souplesse d’utilisation et L'évaluation de la qualité de la pomme après l'application des produits Carbotecnia et d'un standard A en mesurant les paramètres quantité de Ca, (K+Mg/Ca), N/Ca et K/Ca qualifie l'utilisation de ce Turbocalcio Plus et CBT Tecnocalcio comme produits favorisant la meilleure conservation de la pomme.",
+  "image_produit": "https://img.agriexpo.online/fr/images_ag/photo-mg/171917-15892746.jpg"
+}]
