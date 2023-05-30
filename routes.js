@@ -4,9 +4,25 @@ const bodyParser = require('body-parser');
 const jimp = require('jimp');
 const PNG = require('pngjs').PNG;
 const pixelmatch = require('pixelmatch');
+const path = require('path')
+const multer  = require('multer')
 const app = express();
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'images/')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, uniqueSuffix + '.png')
+    }
+  })
+const upload = multer({ storage: storage })
+app.set('view engine', 'ejs')
+app.use(express.static('images'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine","ejs")
+
 mongoose.connect('mongodb://127.0.0.1:27017/agri');
 const Schema = mongoose.Schema;
 const maladesses = mongoose.model('test', new Schema({ 
@@ -19,16 +35,13 @@ const maladesses = mongoose.model('test', new Schema({
     image_produit:String
  }));
 app.get("/",async(req,res)=>{res.render("ajouter",{resultat: {}});})
-
 // app.get("/",async(req,res)=>{
 //     const malades = await maladesses.find();
 //     res.render("index",{
 //         title:"malades",
-//         malades : malades
-        
+//         malades : malades   
 //     });  
 // })
-
 const urlToBuffer = async (url) => {
     return new Promise(async (resolve, reject) => {
         await jimp.read(url, async (err, image) => {
@@ -36,7 +49,7 @@ const urlToBuffer = async (url) => {
                 console.log(`error reading image in jimp: ${err}`);
                 reject(err);
             }
-            image.resize(200, 200);
+            image.resize(100, 100);
             return image.getBuffer(jimp.MIME_PNG, (err, buffer) => {
                 if (err) {
                     console.log(`error converting image url to buffer: ${err}`);
@@ -78,15 +91,15 @@ const compareImage = async (
         throw error;
     }
 };
-app.post('/create', async (req, res) => {
-    const {image1} = req.body;
+app.post('/create' , upload.single('image1'), async (req, res) => {
+    console.log(req.file.filename)
     const malades = await maladesses.find();
-    if (image1) {
+    if (req.file.path) {
         let md = null;
         for (const x of malades) {
             for (let index = 0; index < x.image_malade.length; index++) {
                 const y = Number(100);
-                const rt = await compareImage(image1, x.image_malade[index]); 
+                const rt = await compareImage(req.file.path, x.image_malade[index]); 
                 if (rt === y) {
                     md = x.name_malade;
                 }
